@@ -124,3 +124,14 @@
     @apply bg-background text-foreground;
   }
 }
+
+.swiper-pagination {
+  display: flex !important;
+  justify-content: center;
+  padding-top: 10px; /* Adjust padding as needed */
+}
+
+.swiper-pagination-bullet {
+  background: #4f46e5; /* Change color to match your theme */
+  opacity: 1; /* Ensure bullets are visible */
+}

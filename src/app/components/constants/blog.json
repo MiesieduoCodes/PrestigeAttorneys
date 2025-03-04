@@ -1,0 +1,23 @@
+[
+    {
+      "id": 1,
+      "title": "Key Stamp Duties Imposed on landed properties You Should Know",
+      "description": "Introducing the idea of owning a property or secuirng a perfect accomodation feels like a giant leap towards securing your...",
+      "image": "/images/image.jpg",
+      "link": "#"
+    },
+    {
+      "id": 2,
+      "title": "Adoption of Technology in ADR: A case for online dispute resolution (ODR) in nigeria",
+      "description": "Alternative Dispute Resolution is as old as every community's ciivilization; Various communities have resolved dispute differently...",
+      "image": "/images/ADR.jpg",
+      "link": "#"
+    },
+    {
+      "id": 3,
+      "title": "The Art of negotiation: unlocking win-win solutions",
+      "description": "Negotiation is an essential skill both personal and professtional life. it's a dynamic process that allows individuals to reach...",
+      "image": "/images/Lawperson.jpg",
+      "link": "#"
+    }
+  ]

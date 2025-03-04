@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "title": "Legal Compliance Solutions",
+      "description": "We provide comprehensive legal compliance solutions to ensure your business adheres to all regulations.",
+      "image": "https://pagedone.io/asset/uploads/1696244317.png"
+    },
+    {
+      "id": 2,
+      "title": "Business Technology Integration",
+      "description": "Integrate cutting-edge technology into your business processes for improved efficiency and productivity.",
+      "image": "https://pagedone.io/asset/uploads/1696244340.png"
+    },
+    {
+      "id": 3,
+      "title": "Strategic Legal Guidance",
+      "description": "Our experts offer strategic legal guidance to help you navigate complex legal landscapes.",
+      "image": "https://pagedone.io/asset/uploads/1696244356.png"
+    },
+    {
+        "id": 4,
+        "title": "Legal Compliance Solutions",
+        "description": "We provide comprehensive legal compliance solutions to ensure your business adheres to all regulations.",
+        "image": "https://pagedone.io/asset/uploads/1696244317.png"
+      },
+      {
+        "id": 5,
+        "title": "Business Technology Integration",
+        "description": "Integrate cutting-edge technology into your business processes for improved efficiency and productivity.",
+        "image": "https://pagedone.io/asset/uploads/1696244340.png"
+      },
+      {
+        "id": 6,
+        "title": "Strategic Legal Guidance",
+        "description": "Our experts offer strategic legal guidance to help you navigate complex legal landscapes.",
+        "image": "https://pagedone.io/asset/uploads/1696244356.png"
+      }
+  ]
