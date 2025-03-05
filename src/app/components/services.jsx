@@ -33,7 +33,7 @@ export default function WhatWeDo() {
   }, []);
 
   return (
-    <section id="what-we-do" className="py-24 bg-gray-50">
+    <section id="what-we-do" className="py-20 gap-3 bg-gray-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.h2
           className="font-manrope text-4xl font-bold text-gray-900 text-center reveal"
@@ -44,7 +44,7 @@ export default function WhatWeDo() {
           Services We Provide
         </motion.h2>
         <motion.h2
-          className="font-manrope text-4xl font-bold text-gray-900 text-center mb-16 reveal"
+          className="font-manrope text-4xl font-medium text-gray-900 text-center mb-16 reveal"
           initial={{ opacity: 0, y: 50 }}
           animate={controls}
           transition={{ duration: 0.5 }}
@@ -58,7 +58,7 @@ export default function WhatWeDo() {
             modules={[Navigation, Pagination]}
             spaceBetween={30}
             slidesPerView={1}
-            navigation
+            navigation = {{ clickable: true }}
             pagination={{ clickable: true }}
             className="p-6"
             breakpoints={{
@@ -90,13 +90,13 @@ export default function WhatWeDo() {
 
           {/* Navigation Arrows */}
           <div className="absolute inset-y-0 left-0 flex items-center">
-            <button className="swiper-button-prev bg-indigo-600 text-white p-2 rounded-full hover:bg-indigo-700 transition-colors">
-              &larr;
+            <button className="swiper-button-prev transition-colors">
+
             </button>
           </div>
           <div className="absolute inset-y-0 right-0 flex items-center">
-            <button className="swiper-button-next bg-indigo-600 text-white p-2 rounded-full hover:bg-indigo-700 transition-colors">
-              &rarr;
+            <button className="swiper-button-next transition-colors">
+    
             </button>
           </div>
         </div>

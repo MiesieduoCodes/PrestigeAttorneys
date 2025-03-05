@@ -37,9 +37,10 @@ export default function BlogSection() {
   };
 
   return (
-    <section id="blog-section" className="py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="font-manrope text-4xl font-bold text-gray-900 text-center mb-16">Blog</h2>
+    <section id="blog-section" className="lufga">
+      <div className="mx-auto max-w-7xl p-7 px-4 sm:px-6 lg:px-8">
+        <h2 className="font-manrope lufga text-5xl  font-bold dark:text-gray-200
+         text-gray-900 text-center mb-16">Blog</h2>
         <div className="flex justify-center gap-y-8 lg:gap-y-0 flex-wrap md:flex-wrap lg:flex-nowrap lg:flex-row lg:justify-between lg:gap-x-8">
           {blogs.map((blog, index) => (
             <motion.div 
@@ -56,10 +57,9 @@ export default function BlogSection() {
                 <div className="flex items-center">
                   <img src={blog.image} alt="blogs tailwind section" className="rounded-t-2xl w-full object-cover" />
                 </div>
-                <div className="p-4 lg:p-6 transition-all duration-300 rounded-b-2xl group-hover:bg-gray-50">
-                  <span className="text-indigo-600 font-medium mb-3 block">{blog.date}</span>
-                  <h4 className="text-xl capitalize text-gray-900 font-medium leading-8 mb-5">{blog.title}</h4>
-                  <p className="text-gray-500 leading-6 mb-10">{blog.description}</p>
+                <div className="p-4 lg:p-6 transition-all duration-300 rounded-b-2xl group-hover:bg-gray-50 dark:group-hover:-bg-blue-950">
+                  <h4 className="text-2xl dark:text-gray-200 capitalize text-gray-900 font-semibold leading-8 mb-5">{blog.title}</h4>
+                  <p className="dark:text-gray-200 text-xl text-gray-900 leading-6 mb-10">{blog.description}</p>
                 </div>
               </a>
             </motion.div>
