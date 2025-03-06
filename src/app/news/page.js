@@ -7,7 +7,7 @@ import blogs from '@/app/components/constants/blog.json';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function BlogSection() {
+export default function AllBlogs() {
   const blogRefs = useRef([]);
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export default function BlogSection() {
   return (
     <section id="blog-section" className="lufga">
       <div className="mx-auto max-w-7xl p-7 px-4 sm:px-6 lg:px-8">
-        <h2 className="font-manrope text-5xl font-bold dark:text-gray-200 text-gray-900 text-center mb-16">Blog</h2>
+        <h2 className="font-manrope text-5xl font-bold dark:text-gray-200 text-gray-900 text-center mb-16">All Blogs</h2>
         <div className="flex justify-center gap-y-8 lg:gap-y-0 flex-wrap md:flex-wrap lg:flex-nowrap lg:flex-row lg:justify-between lg:gap-x-8">
           {blogs.map((blog, index) => (
             <motion.div 
@@ -49,7 +49,7 @@ export default function BlogSection() {
               className="group w-full max-lg:max-w-xl lg:w-1/3 rounded-2xl cursor-pointer"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
+              viewport={{ once: false }} 
               transition={{ duration: 0.5, delay: index * 0.2 }}
               onClick={() => window.location.href = `/blog/${blog.id}`} // Redirect to detail page
             >

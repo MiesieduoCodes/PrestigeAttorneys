@@ -41,12 +41,12 @@ const Page = () => {
       });
       gsap.from(".about-text", {
         opacity: 0,
-        x: -100,
+        x: -50,
         duration: 1,
         scrollTrigger: {
           trigger: ".about-text",
-          start: "top 80%",
-          end: "top 30%",
+          start: "top 60%",
+          end: "top 40%",
           scrub: true,
         },
       });
@@ -56,8 +56,8 @@ const Page = () => {
         duration: 1,
         scrollTrigger: {
           trigger: ".about-image",
-          start: "top 80%",
-          end: "top 30%",
+          start: "top 60%",
+          end: "top 40%",
           scrub: true,
         },
       });

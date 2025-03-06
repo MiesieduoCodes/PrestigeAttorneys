@@ -1,119 +1,81 @@
-import { useRef, useEffect } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
-import { motion, useAnimation } from 'framer-motion';
-import gsap from 'gsap';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { motion } from 'framer-motion';
 import services from '@/app/components/constants/services.json';
 
-export default function WhatWeDo() {
-  const swiperRef = useRef(null);
-  const controls = useAnimation();
+gsap.registerPlugin(ScrollTrigger);
+
+export default function serviceSection() {
+  const serviceRefs = useRef([]);
 
   useEffect(() => {
-    const elements = document.querySelectorAll('.reveal');
-
-    const handleScroll = () => {
-      elements.forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight) {
-          gsap.to(el, { opacity: 1, y: 0, duration: 0.6 });
+    serviceRefs.current.forEach((el, index) => {
+      gsap.fromTo(el, 
+        { opacity: 0, y: 50 },
+        { 
+          opacity: 1, 
+          y: 0, 
+          duration: 1, 
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 70%',
+            end: 'bottom 30%',
+            toggleActions: 'play none none reset', // Reset animation on scroll up
+          }
         }
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
+      );
+    });
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill()); // Cleanup ScrollTrigger instances
     };
   }, []);
 
+  const handleScrollToservices = () => {
+    document.getElementById('service-section').scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <section id="what-we-do" className="py-20 gap-3 bg-gray-50">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <motion.h2
-          className="font-manrope text-4xl font-bold text-gray-900 text-center reveal"
-          initial={{ opacity: 0, y: 50 }}
-          animate={controls}
-          transition={{ duration: 0.5 }}
-        >
-          Services We Provide
-        </motion.h2>
-        <motion.h2
-          className="font-manrope text-4xl font-medium text-gray-900 text-center mb-16 reveal"
-          initial={{ opacity: 0, y: 50 }}
-          animate={controls}
-          transition={{ duration: 0.5 }}
-        >
-          What We Do
-        </motion.h2>
+    <section id="service-section" className="lufga">
+      <div className="mx-auto max-w-7xl p-7 px-4 sm:px-6 lg:px-8">
+        <h2 className="font-manrope lufga text-xl font-bold dark:text-gray-200
+         text-gray-900 text-center mb-6">Our Practice Areas</h2>
+         
+         <h2 className="font-manrope lufga text-5xl font-bold dark:text-gray-200 text-black text-center mb-16">What We Do</h2>
 
-        <div className="relative">
-          <Swiper
-            ref={swiperRef}
-            modules={[Navigation, Pagination]}
-            spaceBetween={30}
-            slidesPerView={1}
-            navigation = {{ clickable: true }}
-            pagination={{ clickable: true }}
-            className="p-6"
-            breakpoints={{
-              640: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-            }}
-          >
-            {services.map((service) => (
-              <SwiperSlide key={service.id}>
-                <motion.div
-                  className="group w-full rounded-2xl overflow-hidden reveal"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="flex items-center">
-                    <img src={service.image} alt={service.title} className="w-full h-48 object-cover" />
-                  </div>
-                  <div className="p-6 transition-all duration-300 group-hover:bg-gray-100">
-                    <h4 className="text-xl text-gray-900 font-medium leading-8 mb-4">{service.title}</h4>
-                    <p className="text-gray-500 leading-6 mb-6">{service.description}</p>
-                  </div>
-                </motion.div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-
-          {/* Navigation Arrows */}
-          <div className="absolute inset-y-0 left-0 flex items-center">
-            <button className="swiper-button-prev transition-colors">
-
-            </button>
-          </div>
-          <div className="absolute inset-y-0 right-0 flex items-center">
-            <button className="swiper-button-next transition-colors">
-    
-            </button>
-          </div>
+         <div className="gap-10 flex flex-col">
+        <div className="flex justify-center gap-y-8 lg:gap-y-0 flex-wrap md:flex-wrap lg:flex-nowrap lg:flex-row lg:justify-between lg:gap-x-8">
+          {services.map((service, index) => (
+            <motion.div 
+              key={service.id}
+              ref={el => serviceRefs.current[index] = el}
+              className="group w-full max-lg:max-w-xl lg:w-1/3 cursor-pointer"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false }} // Allow re-triggering on scroll back
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              onClick={() => window.location.href = service.link}>
+            
+                <div className="flex items-center">
+                  <img src={service.image} alt="services tailwind section" className=" w-full object-cover" />
+                </div>
+                <div className="p-4 lg:p-6 transition-all duration-300  group-hover:bg-gray-50 dark:group-hover:bg-blue-950">
+                  <h4 className="text-2xl text-left dark:text-gray-200 uppercase text-black font-semibold leading-8 mb-5">{service.title}</h4>
+                  <p className="dark:text-gray-200 text-xl text-gray-900 leading-6">{service.description}</p>
+                </div>
+            
+            </motion.div>
+          ))}
         </div>
-
-        {/* Pagination Dots */}
-        <div className="swiper-pagination mt-6"></div>
-
-        {/* Read More Button */}
-        <div className="flex justify-center mt-12">
-          <button
-            onClick={() => {
-              console.log('Read More clicked');
-            }}
-            className="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors"
+        <div className="flex justify-center">
+          <button 
+            onClick={handleScrollToservices}
+            className="bg-blue-950 text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition-colors"
           >
             Read More
           </button>
+        </div>
         </div>
       </div>
     </section>

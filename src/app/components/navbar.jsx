@@ -10,6 +10,7 @@ const links = [
   { href: "/services", label: "Services" },
   { href: "/team", label: "Our Teams" },
   { href: "/videos", label: "Videos" },
+  { href: "/blog", label: "Blog" },
 ];
 
 const Navbar = () => {
@@ -43,8 +44,8 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="bg-white lufga text-xl dark:bg-gray-800 shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="bg-white against p-3 dark:bg-gray-800 shadow-md">
+      <div className="max-w-7xl mx-auto px-5 sm:px-7 lg:px-9">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <div className="flex items-center">
@@ -52,28 +53,28 @@ const Navbar = () => {
               {/* Conditionally render the logo based on the theme */}
               {isDarkMode ? (
                 <img
-                  src="/images/logo-dark.jpg"
+                  src="/images/logo-dark.png"
                   alt="Prestige Attorneys"
-                  className="h-10"
+                  className="h-10 z-50 "
                 />
               ) : (
                 <img
-                  src="/images/logo-light.jpg"
+                  src="/images/logo-light.png"
                   alt="Prestige Attorneys"
-                  className="h-10"
+                  className="h-10 bg-blue-950 z-50 "
                 />
               )}
             </Link>
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex against items-center space-x-6">
             <div className="flex space-x-6">
               {links.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-gray-800 dark:text-white font-medium hover:text-blue-600 transition-colors duration-200"
+                  className="text-blue-950 text-sm dark:text-white font-medium hover:text-blue-600 transition-colors duration-200"
                 >
                   {link.label}
                 </Link>
@@ -81,7 +82,7 @@ const Navbar = () => {
             </div>
             <ModeToggle />
             <Link href="/get-started">
-              <button className="bg-blue-950 text-white px-6 py-2 rounded-full hover:bg-blue-900 transition-colors duration-200">
+              <button className="bg-blue-950 lufga text-white px-6 py-2 rounded-full hover:bg-blue-900 transition-colors duration-200">
                 Connect With Us
               </button>
             </Link>
@@ -147,7 +148,7 @@ const Navbar = () => {
             ))}
             <div className="p-4">
               <Link href="/get-started" onClick={closeMenu}>
-                <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full transition-colors duration-200">
+                <button className="bg-blue-600 lufga text-white px-4 py-2 rounded hover:bg-blue-700 w-full transition-colors duration-200">
                   Connect With Us
                 </button>
               </Link>
